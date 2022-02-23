@@ -2,8 +2,18 @@ import styled, {css} from "styled-components";
 
 export const Article = styled.article`
   position: relative;
-  width: 100%;
+  overflow: hidden;
+  transition: .3s ease all;
+  min-width: 100%;
   height: 100%;
+  z-index: 10;
+`
+
+export const ImgPosterMovie = styled.img`
+  width: 100%;
+  height: 346px;
+  object-fit: fill;
+  vertical-align: top;
 `
 
 export const ContainerButtons = styled.div`
