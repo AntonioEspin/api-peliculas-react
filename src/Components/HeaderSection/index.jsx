@@ -1,17 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from '../../static/icons/logo-blockBuster.svg'
 import IconSearch from '../../static/icons/icon-search.svg'
 import {Header, UnorderedList, Form, Input, Button} from './styles'
 
-const HeaderSection = () => {
+const HeaderSection = ({allmovies, mostValue, lessValue}) => {
+
+  const handleAllMovies = () => {
+    allmovies()
+  }
+
+  const handleMostValue = () =>{
+    mostValue()
+  }
+
+  const handleLessValue = () => {
+    lessValue()
+  }
+
   return (
     <Header>
       <img src={Logo} alt="Logo" />
       <nav>
         <UnorderedList>
-          <li>Todas</li>
-          <li>Más Valoradas</li>
-          <li>Menos Valoradas</li>
+          <li onClick={handleAllMovies}>Todas</li>
+          <li onClick={handleMostValue}>Más Valoradas</li>
+          <li onClick={handleLessValue}>Menos Valoradas</li>
         </UnorderedList>
       </nav>
       <Form action="">

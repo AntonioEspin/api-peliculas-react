@@ -26,4 +26,9 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0 auto;
     padding: 0 30px;
   }
-`;
+
+  main {
+    position: relative;
+    overflow: hidden;
+  }
+`

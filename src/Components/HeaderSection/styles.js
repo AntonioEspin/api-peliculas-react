@@ -15,6 +15,13 @@ export const UnorderedList = styled.ul`
   list-style: none;
   font-size: 1.6rem;
   color: var(--white);
+  & li {
+    cursor: pointer;
+    &:hover {
+      color: var(--yellow-primary);
+      text-decoration: underline;
+    }
+  }
 `
 
 export const Form = styled.form`
