@@ -5,9 +5,3 @@ export const ContainerMovies = styled.section`
   height: auto;
   margin: 50px 0;
 `
-
-export const Title = styled.h2`
-  font-size: 4.8rem;
-  font-weight: 700;
-  color: var(--white)
-`

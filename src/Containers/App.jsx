@@ -16,7 +16,7 @@ const App = () => {
   const {movies} = useGetPopularMovies(POPULAR_MOVIES_API)
   const {playingMovies} = useGetNowPlayingMovies(NOW_PLAYING_MOVIES_API)
 
-  const {state, allMovies, mostValueMovies, lessValueMovies} = getInitialState(movies)
+  const {state, search, allMovies, mostValueMovies, lessValueMovies, handleSearchMovies} = getInitialState(movies)
 
   return (
     <main>
@@ -25,6 +25,8 @@ const App = () => {
         allmovies={allMovies} 
         mostValue={mostValueMovies}
         lessValue={lessValueMovies}
+        handleSearch={handleSearchMovies}
+        search={search}
       />
       <CarrouselSection velocidad='1000' intervalo='3000'>
         {playingMovies.map(movie => (
@@ -32,7 +34,11 @@ const App = () => {
         ))}
       </CarrouselSection>
       <MoviesSection>
-        <GridMovies movies ={movies} state={state}/>
+        <GridMovies 
+          movies ={movies}
+          state={state}
+          search={search}
+        />
       </MoviesSection>
     </main>
   )

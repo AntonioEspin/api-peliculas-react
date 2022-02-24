@@ -6,6 +6,11 @@ export const Article = styled.article`
   height: 330px;
   overflow: hidden;
   cursor: pointer;
+  &:hover {
+    transform: scale(1.2);
+    transition: transform 300ms ease-in-out;
+    border-radius: 10px;
+  }
 `
 
 export const ImageMovie = styled.img`

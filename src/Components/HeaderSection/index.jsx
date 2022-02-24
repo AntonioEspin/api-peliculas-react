@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import Logo from '../../static/icons/logo-blockBuster.svg'
 import IconSearch from '../../static/icons/icon-search.svg'
 import {Header, UnorderedList, Form, Input, Button} from './styles'
 
-const HeaderSection = ({allmovies, mostValue, lessValue}) => {
+const HeaderSection = ({allmovies, mostValue, lessValue, handleSearch, search}) => {
 
   const handleAllMovies = () => {
     allmovies()
@@ -28,7 +28,7 @@ const HeaderSection = ({allmovies, mostValue, lessValue}) => {
         </UnorderedList>
       </nav>
       <Form action="">
-        <Input type="text" placeholder="Busca tu película favorita" />
+        <Input type="text" placeholder="Busca tu película favorita" value={search} onChange={(event)=> handleSearch(event)} />
         <Button><img src={IconSearch} alt="IconSearch" /></Button>
       </Form>
     </Header>

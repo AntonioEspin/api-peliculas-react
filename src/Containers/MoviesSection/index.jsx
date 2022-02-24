@@ -1,10 +1,9 @@
 import React from "react";
-import {ContainerMovies, Title} from './styles'
+import {ContainerMovies} from './styles'
 
 const MoviesSection = ({children}) => {
   return (
     <ContainerMovies>
-      <Title>Todas las peliculas</Title>
       {children}
     </ContainerMovies>
   )
