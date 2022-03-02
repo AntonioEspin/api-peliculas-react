@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useGetPopularMovies = (API) => {
+const getPopularMovies = (API) => {
   const [movies, setMovies] = useState([])
 
   useEffect(async ()=>{
@@ -12,7 +12,7 @@ const useGetPopularMovies = (API) => {
   return {movies}
 }
 
-const useGetNowPlayingMovies = (API) => {
+const getNowPlayingMovies = (API) => {
   const [movies, setMovies] = useState([])
 
   useEffect(async ()=>{
@@ -25,4 +25,4 @@ const useGetNowPlayingMovies = (API) => {
   return {playingMovies}
 }
 
-export {useGetPopularMovies, useGetNowPlayingMovies}
+export {getPopularMovies, getNowPlayingMovies}

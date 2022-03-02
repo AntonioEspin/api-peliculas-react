@@ -1,22 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import { HeaderSection } from "../Components/HeaderSection";
 import { CarrouselSection } from "./CarrouselSection";
 import { CarrouselItem } from "../Components/CarrouselItem";
 import {MoviesSection} from '../Containers/MoviesSection';
 import { GridMovies } from "./GridMovies";
 import { GlobalStyles } from "../Styles/GlobalStyles";
-import { useGetPopularMovies, useGetNowPlayingMovies } from "../hooks/useGetMovies";
+import { getPopularMovies, getNowPlayingMovies } from "../utils/getMovies";
 import { getInitialState } from "../utils/initialState";
-
-const POPULAR_MOVIES_API = 'https://api.themoviedb.org/3/movie/popular?api_key=51463645e696823d295c4c7e1cf5fd7e&language=es-MX&page=1'
-
-const NOW_PLAYING_MOVIES_API = 'https://api.themoviedb.org/3/movie/upcoming?api_key=51463645e696823d295c4c7e1cf5fd7e&language=es-MX&page=1&limit=4'
-
+import { useApis } from "../hooks/Api";
+import { Modal } from "../Components/Modal";
+import { InfoMovie } from "../Components/InfoMovie/InfoMovie";
 const App = () => {
-  const {movies} = useGetPopularMovies(POPULAR_MOVIES_API)
-  const {playingMovies} = useGetNowPlayingMovies(NOW_PLAYING_MOVIES_API)
 
-  const {state, search, allMovies, mostValueMovies, lessValueMovies, handleSearchMovies} = getInitialState(movies)
+  const [modal, setModal] = useState(false)
+
+  const {POPULAR_MOVIES_API, NOW_PLAYING_MOVIES_API, setPage} = useApis()
+  const {movies} = getPopularMovies(POPULAR_MOVIES_API)
+  const {playingMovies} = getNowPlayingMovies(NOW_PLAYING_MOVIES_API)
+
+  const {state, search, allMovies, mostValueMovies, lessValueMovies, handleSearchMovies, getInfoMovie} = getInitialState(movies)
 
   return (
     <main>
@@ -33,13 +35,20 @@ const App = () => {
           <CarrouselItem key={movie.id} backdrop_path={movie.backdrop_path}/>
         ))}
       </CarrouselSection>
-      <MoviesSection>
+      <MoviesSection setPage={setPage}>
         <GridMovies 
           movies ={movies}
           state={state}
           search={search}
+          infoMovie={getInfoMovie}
+          setModal={setModal}
         />
       </MoviesSection>
+      {modal && 
+        <Modal>
+          <InfoMovie state={state} setModal={setModal}/>
+        </Modal>
+      }
     </main>
   )
 }

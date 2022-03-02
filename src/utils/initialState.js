@@ -1,10 +1,15 @@
+// import {getPopularMovies} from '../utils/getMovies'
 import { useState } from "react"
+
+
 
 const initialState = {
   listMovies: [],
   mostValue: [],
   lessValue: [],
   searched: [],
+  moreMovies: [],
+  infoMovie: []
 }
 
 const getInitialState = (movies) => {
@@ -56,6 +61,14 @@ const getInitialState = (movies) => {
       searched: movies.filter(movie => movie.original_title.toLowerCase().includes(payload))
     })
   }
+
+  const getInfoMovie = (id) => {
+    setstate({
+      ...state,
+      infoMovie: movies.filter(movie => movie.id === id)
+    })
+  }
+
   // -----------------------------------------------------------------
 
   return {
@@ -65,6 +78,7 @@ const getInitialState = (movies) => {
     lessValueMovies,
     searchMovies,
     handleSearchMovies,
+    getInfoMovie,
     search
   }
 }

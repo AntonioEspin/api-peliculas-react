@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { MovieItem } from "../../Components/MovieItem";
 import {GridSection, Title, NotMovies} from './styles';
 
-const GridMovies = ({movies, state, search}) => {
+const GridMovies = ({movies, state, search, infoMovie, setModal}) => {
 
-  console.log(state)
-
-  const title = search !== '' ? 'Resultados de busqueda': 'Todas las peliculas'
+   const title = search !== '' ? 'Resultados de busqueda': 'Todas las peliculas'
+ 
 
   if(search !== '') {
     return (
@@ -17,8 +16,11 @@ const GridMovies = ({movies, state, search}) => {
             <MovieItem 
               key={movie.id}
               poster_path={movie.poster_path}
-              title={movie.original_title}
+              title={movie.title}
               vote_average={movie.vote_average}
+              id={movie.id}
+              getInfo={infoMovie}
+              setModal={setModal}
             />
           ))}
         </GridSection>
@@ -41,8 +43,11 @@ const GridMovies = ({movies, state, search}) => {
             <MovieItem 
               key={movie.id}
               poster_path={movie.poster_path}
-              title={movie.original_title}
+              title={movie.title}
               vote_average={movie.vote_average}
+              id={movie.id}
+              getInfo={infoMovie}
+              setModal={setModal}
             />
           ))}
         </GridSection>
@@ -59,8 +64,11 @@ const GridMovies = ({movies, state, search}) => {
             <MovieItem 
               key={movie.id}
               poster_path={movie.poster_path}
-              title={movie.original_title}
+              title={movie.title}
               vote_average={movie.vote_average}
+              id={movie.id}
+              getInfo={infoMovie}
+              setModal={setModal}
             />
           ))}
         </GridSection>
@@ -76,8 +84,11 @@ const GridMovies = ({movies, state, search}) => {
           <MovieItem 
             key={movie.id}
             poster_path={movie.poster_path}
-            title={movie.original_title}
+            title={movie.title}
             vote_average={movie.vote_average}
+            id={movie.id}
+            getInfo={infoMovie}
+            setModal={setModal}
           />
         ))}
       </GridSection>
