@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import {ContainerMovies} from './styles'
-import { getPopularMovies } from "../../utils/getMovies";
 
 const MoviesSection =  ({children, setPage}) => {
   const ref = useRef(null)

@@ -7,7 +7,7 @@ import { GridMovies } from "./GridMovies";
 import { GlobalStyles } from "../Styles/GlobalStyles";
 import { getPopularMovies, getNowPlayingMovies } from "../utils/getMovies";
 import { getInitialState } from "../utils/initialState";
-import { useApis } from "../hooks/Api";
+import { useApis } from "../hooks/useApis";
 import { Modal } from "../Components/Modal";
 import { InfoMovie } from "../Components/InfoMovie/InfoMovie";
 const App = () => {

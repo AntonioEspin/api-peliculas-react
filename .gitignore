@@ -45,6 +45,7 @@ bower_components
 psd
 thumb
 sketch
+.env
 
 ### Windows ###
 # Windows thumbnail cache files
