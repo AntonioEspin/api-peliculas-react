@@ -1,9 +1,12 @@
 {
   "name": "blockmaster-project-final",
   "version": "1.0.0",
+  "homepage": "https://antonioespin.github.io/api-peliculas-react",
   "description": "React project",
   "main": "index.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "webpack serve --open --mode development",
     "build": "webpack --mode production"
   },
@@ -26,6 +29,7 @@
     "babel-loader": "^8.2.3",
     "css-loader": "^6.6.0",
     "dotenv-webpack": "^7.1.0",
+    "gh-pages": "^3.2.3",
     "html-loader": "^3.1.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.5.3",
